@@ -1,0 +1,9 @@
+Case study 2 : 
+
+1 -> Create a recordset of patients who haven't filled the form by checking the dates of each patient_id response on which it was created.
+
+2 -> Check if the day is friday  or thursday 23:00 only then perform step 2.1
+	 
+	 2.1 -> If the date attribute of Response created_on is empty then simply add that patient to a list of patients who have'nt responded to the survey so far.
+
+	 2.2 -> Notify the patient on 00:00 hrs friday that he/she has to fill the form using mail API. 
