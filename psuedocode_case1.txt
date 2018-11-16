@@ -1,0 +1,15 @@
+Case study :1 
+
+1 -> Patient gets added to doctor Mahesh database.
+
+2 -> Patient prescription date gets added to database.
+
+3-> Generate a list of patient who haven't filled up the survey.
+
+
+ 4-> Compare the current date and the last date till which a patient can fill the survey.(add 4 weeks into the date on the prescription was made)
+
+5-> If the current date exceeds the last date of survey filling then add that patient_id and prescription_date into an array.
+
+
+6 -> Pass that array in the API as text and send it to the doctor.
