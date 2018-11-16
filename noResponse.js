@@ -1,10 +1,17 @@
-let final_list=[];
+//internal libraries
+let app = require('app');
+
+//external libraries
 let moment = require('moment');
+let sql = require('mssql');
+
+
+let final_list=[];
 
 //create a recordset of patients who havent filled the form.
 function notResponded() 
 {
-    let conn = new sql.ConnectionPool(dbConfig);
+    let conn = new sql.ConnectionPool(app.dbConfig);
     
     let req = new sql.Request(conn);
     conn.connect(function (err) {
