@@ -1,4 +1,8 @@
+//external libraries
 let sql = require('mssql');
+
+
+//server config to connect to MSSQL
 
 let dbConfig = {
     server : 'localhost\\SQLEXPRESS',
@@ -7,6 +11,8 @@ let dbConfig = {
     password: 'admin'
 };
 
+
+//Viewing all the patients_id nad prescription in the database
 
 function getDetails()
 {
@@ -27,8 +33,10 @@ function getDetails()
             else {
                 console.log(recordset);
             }
-           // conn.close();
+           
         });
     }); 
 }
-getDetails();
+exports : {
+    dbConfig
+}
