@@ -1,5 +1,9 @@
 let final_list=[];
-function notResponded() {
+let moment = require('moment');
+
+//create a recordset of patients who havent filled the form.
+function notResponded() 
+{
     let conn = new sql.ConnectionPool(dbConfig);
     
     let req = new sql.Request(conn);
@@ -12,35 +16,28 @@ function notResponded() {
 
             if (err) {
                 console.log(err);
-
             }
             else {
-                //console.log("RECORDSET ::", recordset.recordset);
-
                 const rec = recordset.recordset;
                 const current_date = moment();
                 
-                rec.forEach(function (item, index) {
-                    // item contains each tuple
-                    // index starts from 0
+                rec.forEach(function (item, index) 
+                {
                     let date_of_prescription = moment(item.prescription_date);
                     
                     if (compareDate(current_date, date_of_prescription) === true) {
-                        console.log(item);
                         final_list.push(item);
-                        console.log(final_list);
-                    } else {
-                        console.log("*", compareDate(current_date, date_of_prescription));
-                    }
-                    
+                    } 
+                    else {}
                 });
             }
         });
     });
 }
+
+//check if the the current date is beyond the 4 weeks of prescription being assigned
 function compareDate(current_date,date_of_prescription)
 {
-    //console.log(date_of_prescription);
     let last_date_submission = date_of_prescription.add(4, 'weeks');
     if (current_date.isAfter(last_date_submission))
     {
