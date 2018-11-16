@@ -2,13 +2,16 @@
 let app = require('app');
 
 //external libraries
+
 let moment = require('moment');
 let sql = require('mssql');
 
+//to be send into the mail API as notification having(patient_id and prescription_date)
 
-let final_list=[];
+let final_list=[];          
 
 //create a recordset of patients who havent filled the form.
+
 function notResponded() 
 {
     let conn = new sql.ConnectionPool(app.dbConfig);
@@ -43,6 +46,7 @@ function notResponded()
 }
 
 //check if the the current date is beyond the 4 weeks of prescription being assigned
+
 function compareDate(current_date,date_of_prescription)
 {
     let last_date_submission = date_of_prescription.add(4, 'weeks');
