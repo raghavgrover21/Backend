@@ -1,7 +1,7 @@
 let nodemailer = require('nodemailer');
 let xoauth2 = require('xoauth2');
 
-//TO DO : Async and await problem final_list(in app.js) not being assigned hence not able to send the details in mail
+
 // getting token and authenticating for sending mail to doctor.
 
 const transporter = nodemailer.createTransport({
